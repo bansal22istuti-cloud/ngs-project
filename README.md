@@ -58,8 +58,3 @@ no denovo variant was found
 
 # discussion
 while the Giab data is known for showing denovo variants, the lack of variants found is the project is theorised because of not going through entire genome because of hardware constraints.
-
-
-bcftools merge proband.vcf.gz father.vcf.gz mother.vcf.gz -o trio.vcf
-bcftools view -i 'FORMAT/GT[0]="0/1" || FORMAT/GT[0]="1/1"' trio.vcf | bcftools view -i 'FORMAT/GT[1]="0/0" && FORMAT/GT[2]="0/0"' -o denovo_candidates.vcf
-grep -v "^#" denovo_candidates.vcf | wc -l
